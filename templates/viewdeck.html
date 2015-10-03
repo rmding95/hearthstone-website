@@ -1,0 +1,20 @@
+<html>
+
+<head>
+</head>
+
+<body>
+	<h1>{{deckname}}</h1>
+	<h2>Class: {{hero}}</h2>
+	<ul>
+	{% for card in deck %}
+	<li>{{card}}</li>
+	{% endfor %}
+	</ul>
+
+	<a href="#">Edit this deck</a><br />
+	<a href="/decks.html">All Decks</a><br />
+	<a href="/">Return to Homepage</a><br />
+</body>
+
+</html>

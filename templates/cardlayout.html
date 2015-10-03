@@ -1,0 +1,94 @@
+<html>
+<head>
+	<link rel=stylesheet type=text/css href="{{url_for('static', filename='styles.css')}}">
+	<script type=text/javascript src="{{url_for('static', filename='project.js')}}"></script>
+</head>
+<body>
+<div id="banner">
+<a href="/login.html">Login</a>
+</div>
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+        	<li><h1>Hearthstone Card Viewer and Deckbuilder</h1></li>
+        	<li><a href="/">All Cards</a></li>
+            <li><a href="#">Rarity</a>
+            	<ul>
+            		<li><a href="/rarity/basic">Basic</a></li>
+            		<li><a href="/rarity/common">Common</a></li>
+            		<li><a href="/rarity/rare">Rare</a></li>
+            		<li><a href="/rarity/epic">Epic</a></li>
+            		<li><a href="/rarity/legendary">Legendary</a></li>
+            	</ul>
+            </li>
+            <li><a href="#">Class</a>
+				<ul>
+					<li><a href="/class/druid">Druid</a></li>
+					<li><a href="/class/hunter">Hunter</a></li>
+					<li><a href="/class/mage">Mage</a></li>
+					<li><a href="/class/paladin">Paladin</a></li>
+					<li><a href="/class/priest">Priest</a></li>
+					<li><a href="/class/rogue">Rogue</a></li>
+					<li><a href="/class/shaman">Shaman</a></li>
+					<li><a href="/class/warlock">Warlock</a></li>
+					<li><a href="/class/warrior">Warrior</a></li>
+				</ul>
+            </li>
+            <li><a href="#">Mana Cost</a>
+            	<ul>
+					<li><a href="/cost/1">1</a></li>
+					<li><a href="/cost/2">2</a></li>
+					<li><a href="/cost/3">3</a></li>
+					<li><a href="/cost/4">4</a></li>
+					<li><a href="/cost/5">5</a></li>
+					<li><a href="/cost/6">6</a></li>
+					<li><a href="/cost/7">7+</a></li>
+				</ul>
+            </li>
+            <li><a href="#">Expansion Set</a>
+            	<ul>
+            		<li><a href="/set/Basic">Basic</a></li>
+            		<li><a href="/set/Classic">Classic</a></li>
+            		<li><a href="/set/Naxxramas">Naxxramas</a></li>
+            		<li><a href="/set/Goblins vs Gnomes">Goblins vs Gnomes</a></li>
+            		<li><a href="/set/Blackrock Mountain">Blackrock Mountain</a></li>
+            		<li><a href="/set/The Grand Tournament">The Grand Tournament</a></li>
+            		<li><a href="/set/Reward">Reward</a></li>
+            		<li><a href="/set/Promotion">Promotional Cards</a></li>
+            	</ul>
+            </li>
+            <li><h1><a href="/heroselection.html">Build a New Deck!</a></h1></li>
+            <li><h1><a href="/decks.html">View All Decks!</a></h1></li>
+            <li><h1><a href="#">View your Decks!</a></h1></li>
+        </ul>
+    </div>
+    <div id="page-content-wrapper">
+        <div class="page-content">
+            <div class="container">
+                <div class="row">
+                    <div id="cardarea">
+                        {% for card in cards %}
+						<a href="/cards/{{card.name}}">
+						<div class="card">
+
+						<!--<h1>{{card.name}}</h1>-->
+
+						<p><img src="{{card.img}}" alt="card"></p>
+
+						<!--<p>{{card.x_set}}</p>-->
+
+						</div>
+						</a>
+						{% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>

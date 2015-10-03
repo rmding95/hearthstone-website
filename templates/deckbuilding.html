@@ -1,0 +1,77 @@
+<html>
+
+<head>
+	<link rel=stylesheet type=text/css href="{{url_for('static', filename='deckbuilder.css')}}">
+	<script type=text/javascript src="{{url_for('static', filename='deckbuilder.js')}}"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+</head>
+
+<body>
+	<div class="nav">
+		<ul>
+			<li><a href="#">All Cards</a></li>
+            <li><a href="#">Rarity</a>
+            	<ul>
+            		<li><a href="/rarity/basic">Basic</a></li>
+            		<li><a href="/rarity/common">Common</a></li>
+            		<li><a href="/rarity/rare">Rare</a></li>
+            		<li><a href="/rarity/epic">Epic</a></li>
+            		<li><a href="/rarity/legendary">Legendary</a></li>
+            	</ul>
+            </li>
+            <li><a href="#">Mana Cost</a>
+            	<ul>
+					<li><a href="/cost/1">1</a></li>
+					<li><a href="/cost/2">2</a></li>
+					<li><a href="/cost/3">3</a></li>
+					<li><a href="/cost/4">4</a></li>
+					<li><a href="/cost/5">5</a></li>
+					<li><a href="/cost/6">6</a></li>
+					<li><a href="/cost/7">7+</a></li>
+				</ul>
+            </li>
+            <li><a href="#">Expansion Set</a>
+            	<ul>
+            		<li><a href="/set/Basic">Basic</a></li>
+            		<li><a href="/set/Classic">Classic</a></li>
+            		<li><a href="/set/Naxxramas">Naxxramas</a></li>
+            		<li><a href="/set/Goblins vs Gnomes">Goblins vs Gnomes</a></li>
+            		<li><a href="/set/Blackrock Mountain">Blackrock Mountain</a></li>
+            		<li><a href="/set/The Grand Tournament">The Grand Tournament</a></li>
+            		<li><a href="/set/Reward">Reward</a></li>
+            		<li><a href="/set/Promotion">Promotional Cards</a></li>
+            	</ul>
+            </li>
+		</ul>
+	</div>
+	<div id="container">
+		<div id="cardarea">
+			{% for card in cards %}
+				<div class="card" id="{{card.name}}">
+
+				<p><img src="{{card.img}}" alt="{{card.name}}"></p>
+
+				</div>
+			{% endfor %}
+		</div>
+		<div id="deckarea">
+			<h1>Deckbuilding Rules</h1>
+			<ol>
+				<li>30 Card Decks</li>
+				<li>You are allowed 2 of the same card in each deck</li>
+				<li>Only 1 legendary per deck</li>
+			</ol>
+			<div id="counter">
+			</div>
+			<form id="deck" action="/savedeck/" method="post">
+				Deck name: <input type="text" name="deckname" /><br />
+				Class: <input id="class" type="text" name="class" /><br />
+				<div id="actualdeck">
+				</div>
+				<input type="submit" value="Save Deck" />
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

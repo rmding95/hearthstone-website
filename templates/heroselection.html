@@ -1,0 +1,19 @@
+<html>
+<head>
+
+</head>
+
+<body>
+	<h1>The first step in creating your deck is to choose a hero!</h1>
+	<div id="area">
+		{% for hero in heroes %}
+		<a href="/builddeck/{{hero.faction}}">
+		<div>
+		<p><img src="{{hero.img}}" alt="hero"></p>
+		</div>
+		</a>
+		{% endfor %}
+	</div>
+</body>
+
+</html>
